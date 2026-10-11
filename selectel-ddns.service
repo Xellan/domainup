@@ -1,0 +1,23 @@
+[Unit]
+Description=Update home IPv4 in Selectel DNS actual
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+DynamicUser=yes
+LoadCredential=config.json:/etc/selectel-ddns/config.json
+ExecStart=/usr/bin/python3 /usr/local/lib/selectel-ddns/selectel-ddns.py --config ${CREDENTIALS_DIRECTORY}/config.json
+TimeoutStartSec=90s
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0077
+StandardOutput=journal
+StandardError=journal

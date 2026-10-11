@@ -1,0 +1,11 @@
+[Unit]
+Description=Check home IPv4 for Selectel DNS every two minutes
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=2min
+AccuracySec=5s
+Unit=selectel-ddns.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+{
+  "account_id": "",
+  "project_name": "",
+  "username": "",
+  "password": "",
+  "zone": "example.com",
+  "record": "home.example.com",
+  "timeout_seconds": 10
+}
